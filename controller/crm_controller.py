@@ -34,7 +34,8 @@ def delete_customer():
 
 
 def get_subscribed_emails():
-    view.print_error_message("Not implemented yet.")
+    subscribedMail = get_subscribed_emails()
+    view.print_general_results(subscribedMail, "Subscribed customers are: ")
 #  Get the emails of subscribed customers.
 
 
@@ -76,5 +77,5 @@ def menu():
             view.print_error_message(err)
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

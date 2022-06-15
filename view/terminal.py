@@ -1,14 +1,10 @@
-import os
-
-
-def clear():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-
 def print_menu(title, list_options):
-    title = title.upper()
+    bold = "\033[1m"
+    yellow = '\033[93m'
+    end = '\033[0m'
+    title = bold + title.upper() + end
     print("\n\n")
-    print(title.center(95))
+    print(yellow + title.center(95) + end)
     print()
     counter = 0
     for option in list_options:
@@ -31,8 +27,17 @@ def print_general_results(result, label):
     lists/tuples (like "@label: \n  @item1; @item2"), and dictionaries
     (like "@label \n  @key1: @value1; @key2: @value2")
     """
-    pass
-
+    # floatType = isinstance(result, (float))
+    listType = isinstance(result(list, tuple))
+    # dictType = isinstance(result, (dict))
+    # if floatType:
+    #     pass
+    if listType:
+        print(f"{result}\n customer is subscribed")
+    # elif dictType:
+    #     pass
+    # else:
+    #     errormsg - validálás
 
 # /--------------------------------\
 # |   id   |   product  |   type   |
@@ -41,15 +46,17 @@ def print_general_results(result, label):
 # |--------|------------|----------|
 # |   1    | Sidewinder | missile  |
 # \-----------------------------------/
+
+
 def print_table(table):
     length_list = [len(element) for row in table for element in row]
     column_width = max(length_list)
-    final_printTable = (len(table[0])*(column_width + 5)) * '-'
+    printTableRow = (len(table[0])*(column_width + 5)) * '-'
     for row in table:
-        print(final_printTable.rjust(100))
+        print(printTableRow.rjust(100))
         row = " | ".join(element.center(column_width + 2) for element in row)
         print(row.rjust(100))
-    print(final_printTable.rjust(100))
+    print(printTableRow.rjust(100))
 
 
 """Prints tabular data like above.
@@ -66,7 +73,7 @@ def get_input(label):
         label: str - the label before the user prompt
     """
     nl = '\n\n'
-    inp = int(input(f"{nl}Please {label} : "))
+    inp = input(f"{nl}Please {label} : ")
     return inp
 
 
