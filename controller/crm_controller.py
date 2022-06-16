@@ -27,16 +27,15 @@ def update_customer():
 # When the last field is filled in, the customer fields are updated with the given values.
 
 
-def delete_customer():
-    view.print_error_message("Not implemented yet.")
-#  option 4 asks the user for the ID of a customer.
-# If the ID belongs to an existing customer, the customer is deleted from the database.
+def delete_customer():  # asks the user for the ID of a customer. If the ID belongs to an existing customer, the customer is deleted from the database.
+    data = delete_customer()
+    view.print_message("Customer deleted from the database.")
+    view.print_table(data)
 
 
-def get_subscribed_emails():
+def get_subscribed_emails():  # Get the emails of subscribed customers.
     subscribedMail = get_subscribed_emails()
     view.print_general_results(subscribedMail, "Subscribed customers are: ")
-#  Get the emails of subscribed customers.
 
 
 def run_operation(option):

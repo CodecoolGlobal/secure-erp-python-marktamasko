@@ -45,10 +45,13 @@ def update_customer():
 
 
 def delete_customer():
-    # data = data_manager.read_table_from_file(DATAFILE)
-    # # del data(ahol találta sor)
-    # data_manager.write_table_to_file(DATAFILE, data)
-    pass
+    data = data_manager.read_table_from_file(DATAFILE)
+   
+    for cust in data:
+        if ID == cust[0]:
+            del cust
+    data_manager.write_table_to_file(DATAFILE, data)
+    return data
 
 
 def get_subscribed_emails():

@@ -7,6 +7,7 @@ def read_table_from_file(file_name, separator=';'):
     Args:
         file_name: The name of the CSV data file.
         separator: The CSV separator character
+        print(file_name) 
 
     Returns:
         The data parsed into a list of lists.
@@ -16,7 +17,8 @@ def read_table_from_file(file_name, separator=';'):
             lines = file.readlines()
         return [element.replace("\n", "").split(separator) for element in lines]
     except IOError:
-        return []
+        print(file_name) 
+        return 
 
 
 def write_table_to_file(file_name, table, separator=';'):
