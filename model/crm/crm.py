@@ -61,3 +61,4 @@ def get_subscribed_emails():
         if i[-1] == 1:
             subscribedMail += i[-2]
     return subscribedMail
+
